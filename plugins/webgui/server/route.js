@@ -368,3 +368,5 @@ app.get('*', (req, res) => {
 //   ws.send('ws connected');
 // });
 
+app.get('/api/admin/account/newPort', admin.newPortForAddAccount);
+app.post('/api/admin/account', admin.addAccount);

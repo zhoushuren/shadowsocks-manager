@@ -3,7 +3,7 @@ if(gcmSenderId) { gcmSenderId = gcmSenderId.toString(); }
 
 const manifest = {
   short_name: 'ssmgr',
-  name: 'Shadowsocks-Manager',
+  name: 'WalkOut',
   icons: [
     {
       src: '/favicon.png',

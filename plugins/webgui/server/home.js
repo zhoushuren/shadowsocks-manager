@@ -35,7 +35,7 @@ exports.signup = async (req, res) => {
     }
     const email = req.body.email.toString().toLowerCase();
     const code = req.body.code;
-    await emailPlugin.checkCode(email, code);
+    // await emailPlugin.checkCode(email, code);
     await knex('user').count('id AS count').then(success => {
       if(!success[0].count) {
         type = 'admin';
