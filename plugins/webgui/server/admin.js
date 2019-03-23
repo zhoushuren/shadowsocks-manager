@@ -77,8 +77,11 @@ exports.getOneAccount = async (req, res) => {
   try {
     const accountId = +req.params.accountId;
     const accountInfo = await account.getAccount({ id: accountId }).then(s => s[0]);
+    // console.log(accountInfo)
     if(!accountInfo) {
-      return Promise.reject('account not found');
+        res.status(200).end();
+        return
+      // return Promise.reject('account not found');
     }
     accountInfo.data = JSON.parse(accountInfo.data);
     if(accountInfo.type >= 2 && accountInfo.type <= 5) {

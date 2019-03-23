@@ -226,6 +226,13 @@ app.get('/api/user/ref/user', isUser, user.getRefUser);
 
 app.get('/api/user/order', isUser, user.getOrder);
 
+
+
+app.get('/app/newPort', admin.newPortForAddAccount);
+app.post('/app/account', admin.addAccount);
+// app.get('/app/account', admin.getAccount);
+app.get('/app/account/:accountId(\\d+)', admin.getOneAccount);
+
 if (config.plugins.webgui_telegram && config.plugins.webgui_telegram.use) {
   const telegram = appRequire('plugins/webgui_telegram/account');
   app.get('/api/user/telegram/code', isUser, user.getTelegramCode);
@@ -367,6 +374,3 @@ app.get('*', (req, res) => {
 //   });
 //   ws.send('ws connected');
 // });
-
-app.get('/api/app/newPort', admin.newPortForAddAccount);
-app.post('/api/app/account', admin.addAccount);
