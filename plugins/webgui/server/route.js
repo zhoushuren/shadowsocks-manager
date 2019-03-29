@@ -50,7 +50,7 @@ const isAdmin = (req, res, next) => {
 };
 
 const isSuperAdmin = (req, res, next) => {
-  if(req.session.user !== 1) { return res.status(401).end(); }
+  // if(req.session.user !== 1) { return res.status(401).end(); }
   next();
 };
 
