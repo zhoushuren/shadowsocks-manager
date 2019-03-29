@@ -77,9 +77,9 @@ app.controller('AdminAccountController', ['$scope', '$state', '$mdMedia', '$http
         accountFilter();
       }, 500);
     });
-    $scope.setFabButton($scope.id === 1 ? () => {
+    $scope.setFabButton(() => {
       $state.go('admin.addAccount');
-    } : null);
+    });
     $scope.toAccount = account => {
       if(account.mac) {
         $state.go('admin.userPage', { userId: account.userId });
@@ -388,14 +388,13 @@ app.controller('AdminAccountController', ['$scope', '$state', '$mdMedia', '$http
         background: `linear-gradient(90deg, rgba(0,0,0,0.12) ${ percent }%, rgba(0,0,0,0) 0%)`
       };
     };
-    $scope.setFabButton($scope.id === 1 ? () => {
+    $scope.setFabButton(() => {
       $scope.editAccount($scope.account.id);
-    } : null, 'mode_edit');
+    }, 'mode_edit');
     $scope.setExpireTime = number => {
       $scope.expireTimeShift += number;
     };
     $scope.expireTimeSheet = time => {
-      if($scope.id !== 1) { return; }
       if(!time) { return; }
       $scope.expireTimeShift = 0;
       $mdBottomSheet.show({
